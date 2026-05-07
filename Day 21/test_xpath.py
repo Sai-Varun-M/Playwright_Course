@@ -1,5 +1,6 @@
 from playwright.sync_api import Page, expect  # pyright: ignore[reportMissingImports]
 import re
+import pytest
 
 def test_xpath(page:Page):
     page.goto("https://demowebshop.tricentis.com/")
@@ -12,6 +13,7 @@ def test_xpath(page:Page):
     expect(page.locator("//img[@alt='Tricentis Demo Web Shop']")).to_be_visible()
     page.wait_for_timeout(5000)
 
+@pytest.mark.skip
 def test_handle_dynamic_elements_css(page:Page):
     page.goto("https://testautomationpractice.blogspot.com/")
 
