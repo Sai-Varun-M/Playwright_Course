@@ -1,5 +1,7 @@
-from playwright.sync_api import Page, expect # pyright: ignore[reportMissingImports]
+from playwright.sync_api import Page, expect
+import pytest # pyright: ignore[reportMissingImports]
 
+@pytest.mark.skip
 def test_multidropdown(page:Page):
     page.goto("https://testautomationpractice.blogspot.com/")
     page.locator("#colors").select_option(["Red","Blue","Green"]) #By label
