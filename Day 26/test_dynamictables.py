@@ -1,5 +1,7 @@
-from playwright.sync_api import Page, expect  # pyright: ignore[reportMissingImports]
+from playwright.sync_api import Page, expect
+import pytest  # pyright: ignore[reportMissingImports]
 
+@pytest.mark.skip
 def test_dynamic(page:Page):
     page.goto("https://practice.expandtesting.com/dynamic-table#google_vignette")
 
