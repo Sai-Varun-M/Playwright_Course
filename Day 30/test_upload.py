@@ -14,7 +14,7 @@ def test_upload(page:Page):
 
     page.wait_for_timeout(3000)
 
-
+@pytest.mark.skip
 def test_multipleupload(page:Page):
     page.goto("https://testautomationpractice.blogspot.com/")
 

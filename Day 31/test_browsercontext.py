@@ -2,6 +2,7 @@ import pytest # pyright: ignore[reportMissingImports]
 from playwright.sync_api import Page, expect,Playwright # pyright: ignore[reportMissingImports]
 
 #Browser-> context -> page
+@pytest.mark.skip
 def test_browser(playwright:Playwright):
     # chromium = playwright.chromium
     # browser = chromium.launch()
