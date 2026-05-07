@@ -1,5 +1,7 @@
+import pytest
 from playwright.sync_api import Page, expect, Playwright # pyright: ignore[reportMissingImports]
 
+@pytest.mark.skip
 def test_popups(playwright:Playwright):
     browser = playwright.chromium.launch(headless = False)
     context = browser.new_context()

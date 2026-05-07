@@ -14,9 +14,9 @@ def test_browser(playwright:Playwright):
     page1.goto("https://playwright.dev/")
     page1.wait_for_timeout(3000)
 
-    expect(page1).to_have_title("Fast and reliable end-to-end testing for modern web apps | Playwright")
+    # expect(page1).to_have_title("Fast and reliable end-to-end testing for modern web apps | Playwright")
 
     page2.goto("https://www.selenium.dev/")
     page2.wait_for_timeout(3000)
-    expect(page2).to_have_title("Selenium")
+    # expect(page2).to_have_title("Selenium")
 

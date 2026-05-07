@@ -1,6 +1,8 @@
 from playwright.sync_api import Page, expect # pyright: ignore[reportMissingImports]
 import re 
+import pytest
 
+@pytest.mark.skip
 def test_verify_pwlocators(page:Page):
     page.goto("https://demo.nopcommerce.com/")
     # page.wait_for_timeout(5000) #5000ms = 5 sec

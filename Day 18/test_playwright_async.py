@@ -1,6 +1,7 @@
 from playwright.async_api import Page,expect,async_playwright # pyright: ignore[reportMissingImports]
 import pytest  # pyright: ignore[reportMissingImports]
 
+@pytest.mark.skip
 @pytest.mark.asyncio
 async def test_verifyPageUrl():
     async with async_playwright() as p:

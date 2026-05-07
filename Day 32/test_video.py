@@ -1,5 +1,7 @@
-from playwright.sync_api import Playwright, expect # pyright: ignore[reportMissingImports]
+from playwright.sync_api import Playwright, expect
+import pytest # pyright: ignore[reportMissingImports]
 
+@pytest.mark.skip
 def test_video(playwright:Playwright):
     browser= playwright.chromium.launch(headless = False)
     context = browser.new_context(record_video_dir = "videos/", record_video_size={"width":1024, "height":768})

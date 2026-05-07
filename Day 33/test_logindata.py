@@ -8,7 +8,7 @@ login_test_Data = [("laura.taylor1234@example.com", "test123", "valid"),
                    ]
 
 # file = open("testdata/data.json", "r") #to get data from json files
-login_data = json.load(file)
+# login_data = json.load(file)
 
 # @pytest.mark.parametrize("email,password,validity", [data["email"],data["password"],data["validity"] for data in login_data])
 

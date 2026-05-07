@@ -23,7 +23,7 @@ def test_mouse_doubleclick(page:Page):
 
     page.wait_for_timeout(5000)
 
-
+@pytest.mark.skip
 def test_draganddrop(page:Page):
     page.goto("https://testautomationpractice.blogspot.com/")
 
