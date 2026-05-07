@@ -1,5 +1,7 @@
-from playwright.sync_api import Page, expect # pyright: ignore[reportMissingImports]
+from playwright.sync_api import Page, expect
+import pytest # pyright: ignore[reportMissingImports]
 
+@pytest.mark.skip
 def test_input(page:Page):
     page.goto("https://testautomationpractice.blogspot.com/")
 

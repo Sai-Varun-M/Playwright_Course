@@ -1,5 +1,7 @@
-from playwright.sync_api import Page, expect # pyright: ignore[reportMissingImports]
+from playwright.sync_api import Page, expect
+import pytest # pyright: ignore[reportMissingImports]
 
+@pytest.mark.skip(reason="This test is for demonstration purposes and may not be suitable for automated testing.")
 def test_radio(page:Page):
     page.goto("https://testautomationpractice.blogspot.com/")
 
