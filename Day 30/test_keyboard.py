@@ -7,14 +7,14 @@ def test_keyboard(page:Page):
     input1.focus()
 
     page.keyboard.insert_text("welcome")
-    page.keyboard.press("Control+A")
-    page.keyboard.press("Control+C")
+    page.keyboard.press("ControlOrMeta+A")
+    page.keyboard.press("ControlOrMeta+C")
     page.keyboard.press("Tab")
     page.keyboard.press("Tab")
-    page.keyboard.press("Control+V")
+    page.keyboard.press("ControlOrMeta+V")
     page.keyboard.press("Tab")
     page.keyboard.press("Tab")
-    page.keyboard.press("Control+V")
+    page.keyboard.press("ControlOrMeta+V")
     input2=page.locator("#input2")
     input3=page.locator("#input3")
 
