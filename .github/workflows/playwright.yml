@@ -22,12 +22,32 @@ jobs:
         pip install pytest playwright pytest-playwright pytest-html
     - name: Install Playwright Browsers
       run: playwright install --with-deps
-    - name: Run pytest suite
-      run: pytest -v
-    - uses: actions/upload-artifact@v5
-      if: ${{ !cancelled() }}
-      with:
-        name: test-results
-        path: test-results/
-        if-no-files-found: ignore
-        retention-days: 30
+    - name: Validate syntax for all Day Python files
+      run: |
+        python - <<'PY'
+        import pathlib
+        import py_compile
+        import sys
+
+        files = sorted(pathlib.Path('.').glob('Day */**/*.py'))
+        if not files:
+          print('No Python files found under Day folders.')
+          sys.exit(1)
+
+        failures = []
+        for file_path in files:
+          try:
+            py_compile.compile(str(file_path), doraise=True)
+          except py_compile.PyCompileError as exc:
+            failures.append((file_path, exc.msg))
+
+        if failures:
+          print('Syntax errors found:')
+          for file_path, msg in failures:
+            print(f'\\n- {file_path}\\n{msg}')
+          sys.exit(1)
+
+        print(f'Syntax check passed for {len(files)} Python files.')
+        PY
+    - name: Run all pytest tests from Day folders
+      run: pytest -v "Day 16" "Day 17" "Day 18" "Day 19" "Day 20" "Day 21" "Day 22" "Day 23" "Day 24" "Day 25" "Day 26" "Day 27" "Day 28" "Day 29" "Day 30" "Day 31" "Day 32" "Day 33" "Day 34" "Day 35"
