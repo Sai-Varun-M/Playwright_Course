@@ -1,4 +1,6 @@
 name: Playwright Tests
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 on:
   workflow_dispatch:
   push:
@@ -11,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v5
-    - uses: actions/setup-python@v5
+    - uses: actions/setup-python@v6
       with:
         python-version: '3.11'
     - name: Install dependencies
@@ -22,7 +24,7 @@ jobs:
       run: playwright install --with-deps
     - name: Run pytest suite
       run: pytest -v
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v5
       if: ${{ !cancelled() }}
       with:
         name: test-results
